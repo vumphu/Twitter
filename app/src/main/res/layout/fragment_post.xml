@@ -51,32 +51,44 @@
                     android:src="@drawable/user1_post"></ImageView>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
+                        android:layout_marginLeft="10dp"
                         android:src="@drawable/heart"></ImageView>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="28.6K">
-                    </TextView>
+                        android:text="28.6K"
+                        android:layout_marginLeft="10dp"></TextView>
+
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/comment"/>
+                        android:src="@drawable/comment"
+                        android:layout_marginLeft="10dp"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1,395"/>
+                        android:text="1,395"
+                        android:layout_marginLeft="10dp"/>
+
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/share"/>
+                        android:src="@drawable/share"
+                        android:layout_marginLeft="10dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2,383"/>
+                        android:text="2,383"
+                        android:layout_marginLeft="10dp"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

@@ -69,19 +69,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             tab.setIcon(tabIcons[position]);
         }).attach();
 
+
     }
 
 
-
-        public void onBackPressed(){
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else{
-            super.onBackPressed();
-        }
+    private void setToolbarTitle(String title) {
+        getSupportActionBar().setTitle(title);
     }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return true;
