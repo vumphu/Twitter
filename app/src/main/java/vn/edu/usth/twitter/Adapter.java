@@ -1,5 +1,7 @@
 package vn.edu.usth.twitter;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -9,6 +11,7 @@ public class Adapter extends FragmentStateAdapter {
 
     public Adapter(FragmentActivity fragmentActivity) {
         super(fragmentActivity);
+
     }
 
     @NonNull
@@ -17,7 +20,7 @@ public class Adapter extends FragmentStateAdapter {
         if (position == 0) {
             return new Newsfeed();
         } else if (position == 1) {
-            return new Newsfeed();
+            return new NotificationFragment();
         } else {
             return new Newsfeed();
         }
