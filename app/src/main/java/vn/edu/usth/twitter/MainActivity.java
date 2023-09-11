@@ -11,9 +11,11 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -21,8 +23,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    private TabLayout tabLayout;
 
-
+    private int[] tabIcons = {
+            R.drawable.home_icon,
+            R.drawable.notification_icon,
+            R.drawable.inbox_icon,
+    };
     private Adapter pagerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,10 +61,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Set the adapter to your ViewPager2
         viewPager.setAdapter(pagerAdapter);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+
+        //---------------Link tabLayout with viewPager--------------//
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
+            // Set tab titles here if needed
+            tab.setIcon(tabIcons[position]);
+        }).attach();
 
     }
 
-    public void onBackPressed(){
+
+
+        public void onBackPressed(){
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
