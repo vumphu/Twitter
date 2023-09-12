@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -27,15 +28,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private int[] tabIcons = {
             R.drawable.home_icon,
+            R.drawable.search_icon,
             R.drawable.notification_icon,
             R.drawable.inbox_icon,
     };
     private Adapter pagerAdapter;
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         /*----------------Hooks-----------------*/
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -45,6 +47,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         /*----------------Tool Bar-----------------*/
         setSupportActionBar(toolbar);
 
+            /* Hide app name in tool bar */
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbar.setTitle("");
+        toolbar.setSubtitle("");
+
         /*---------Navigation Drawer Menu-----------*/
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
@@ -52,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
-
         //----------Set MutiView---------------//
         ViewPager2 viewPager = findViewById(R.id.viewPager);
 
@@ -68,8 +74,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // Set tab titles here if needed
             tab.setIcon(tabIcons[position]);
         }).attach();
-
-
     }
 
 
