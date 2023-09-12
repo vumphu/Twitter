@@ -20,6 +20,8 @@ public class Adapter extends FragmentStateAdapter {
         if (position == 0) {
             return new Newsfeed();
         } else if (position == 1) {
+            return new SearchFragment();
+        } else if (position == 2) {
             return new NotificationFragment();
         } else {
             return new Newsfeed();
@@ -28,6 +30,6 @@ public class Adapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 4;
     }
 }
