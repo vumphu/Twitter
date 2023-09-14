@@ -4,15 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -74,14 +72,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // Set tab titles here if needed
             tab.setIcon(tabIcons[position]);
         }).attach();
+        //------------------listen to item click ----------------//
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
-
+    //---------------------Open activity after click menu's item---------------//
     private void setToolbarTitle(String title) {
         getSupportActionBar().setTitle(title);
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.profile){
+            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+        }
+        if (id == R.id.premium){
+            startActivity(new Intent(MainActivity.this,PremiumActivity.class));
+        }
+        if(id == R.id.bookmarks){
+            startActivity(new Intent(MainActivity.this, BookmarksActivity.class));
+        }
+        if(id == R.id.lists){
+            startActivity(new Intent(MainActivity.this, ListsActivity.class));
+        }
         return true;
     }
 }
