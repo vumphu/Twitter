@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //------------------listen to item click ----------------//
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     //---------------------Open activity after click menu's item---------------//
